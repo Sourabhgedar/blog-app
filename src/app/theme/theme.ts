@@ -14,12 +14,6 @@ const roboto = Roboto({
     display: 'swap'
 })
 
-declare module '@mui/material/styles' {
-    interface Components {
-        MainMenuFrameComponent: {},
-        GameButtonComponent: {}
-    }
-}
 
 export const theme = createTheme({
     palette: {
