@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Article } from '../blogStore/Types/blogsTypes'
 import { MAIN_CONSTANTS } from '../constants'
-
+import { Box, Grid } from '@mui/material';
 type ListType = {
     lists: Article
 };
@@ -43,7 +43,7 @@ export default function Cards({ lists }: ListType) {
                 }}
             >
                 <Typography gutterBottom variant="h5" component="div" sx={{ fontSize: '16px', fontWeight: '700' }}>
-                    {lists.author}
+                    {lists.author ?? "A Author"}
                 </Typography>
                 <>
                     {expanded ? (
@@ -55,11 +55,22 @@ export default function Cards({ lists }: ListType) {
                             {lists.description}
                         </Typography>
                     )}
-                    <Button sx={{}} size="small" onClick={toggleExpanded}>
-                        {expanded ? 'See Less' : 'See More'}
-                    </Button>
+                    <Grid
+                        container
+                    >
+                        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} >
+                            <Button  size="small" onClick={toggleExpanded}>
+                                {expanded ? 'Show Less' : 'Show More'}
+                            </Button>
+                        </Grid>
+                        <Grid item sx={{textAlign:'end'}}  xs={6} sm={6} md={6} lg={6} xl={6}>
+                        <Button size="small" onClick={() => { window.open(lists.url, '_blank'); }}>
+                            View
+                        </Button>
+                        </Grid>
+                    </Grid>
                 </>
             </CardContent>
-        </Card>  
+        </Card>
     );
 }
