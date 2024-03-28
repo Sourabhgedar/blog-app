@@ -6,7 +6,7 @@ import { BlogApiResponse , GetTopHeadlinesParams} from "./Types/blogsTypes";
 
 const blogListApiSlice = blogApiEnhancedSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getBlogList: builder.query<BlogApiResponse[], GetTopHeadlinesParams>({
+    getBlogList: builder.query<BlogApiResponse, GetTopHeadlinesParams>({
       query: queries.getBlogs.query, 
     }),
   }),

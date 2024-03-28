@@ -11,7 +11,7 @@ import Container from '@mui/material/Container';
 function Navbar() {
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{boxShadow:'none'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <FitbitIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

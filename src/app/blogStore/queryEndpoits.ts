@@ -1,10 +1,10 @@
 import { GetTopHeadlinesParams } from './Types/blogsTypes'
 export const queries = {
   getBlogs: {
-    query: ({ country, category, apiKey, page, pageSize }: GetTopHeadlinesParams) => ({
+    query: (queryParams: GetTopHeadlinesParams) => ({
       url: `top-headlines`,
       method: 'GET',
-      params: { country, category, apiKey, page, pageSize },
+      params: queryParams,
     }),
   },
 } as const;
