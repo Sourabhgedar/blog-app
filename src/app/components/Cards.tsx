@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Article } from '../blogStore/Types/blogsTypes'
 import { MAIN_CONSTANTS } from '../constants'
+
 type ListType = {
     lists: Article
 };
@@ -59,6 +60,6 @@ export default function Cards({ lists }: ListType) {
                     </Button>
                 </>
             </CardContent>
-        </Card>
+        </Card>  
     );
 }
