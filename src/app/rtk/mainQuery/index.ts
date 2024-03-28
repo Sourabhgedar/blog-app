@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://jsonplaceholder.typicode.com/"
+  baseUrl: process.env.NEXT_PUBLIC_BASE_URL
 });
 
 export const blogApiSlice = createApi({
