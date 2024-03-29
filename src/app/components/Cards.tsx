@@ -34,11 +34,15 @@ export default function Cards({ lists }: ListType) {
                 component="img" alt="green iguana" height="150"
                 image={lists?.urlToImage ? lists?.urlToImage : MAIN_CONSTANTS.PLACE_HOLDER_IMAGE}
                 onError={handleImagError}
+                onClick={()=>{
+                    window.open(lists.url, '_blank');
+                }}
                 sx={{
                     transition: 'transform 0.3s ease',
                     '&:hover': {
-                      transform: 'scale(1.1)', // Adjust the scale factor for zoom effect
+                      transform: 'scale(1.1)', 
                     },
+                    cursor:'pointer'
                   }}
             />
             <CardContent

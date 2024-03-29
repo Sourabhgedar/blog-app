@@ -25,4 +25,5 @@ export interface GetTopHeadlinesParams {
   apiKey: string | undefined;
   page: number;
   pageSize: number;
+  q:string
 }
