@@ -60,6 +60,7 @@ const NewsListing = () => {
             pageSize: QUERY.PAGE_SIZE,
             q: ""
         })
+        setSearchValue("")
     }
     return (
         <>
@@ -112,6 +113,7 @@ const NewsListing = () => {
                                         label="Search"
                                         variant="outlined"
                                         type="text"
+                                        value={searchValue}
                                         InputProps={{
                                             endAdornment: (
                                                 <SearchIcon
