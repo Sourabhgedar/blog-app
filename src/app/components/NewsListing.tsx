@@ -61,8 +61,6 @@ const NewsListing = () => {
             q: ""
         })
     }
-
-
     return (
         <>
             <Box sx={{
@@ -138,7 +136,7 @@ const NewsListing = () => {
                     next={fetchMoreData}
                     hasMore={newsListingData?.articles?.length !== newsListingData?.totalResults}
                     loader={
-                        <Grid mt={1} mb={1} container spacing={2}>
+                        <Grid mb={1} container spacing={2}>
                             {Array.from(new Array(4)).map((item, index) => (
                                 <Grid item xs={12} sm={12} md={4} lg={4} xl={3} key={index}>
                                     <CardsSkeleton />
