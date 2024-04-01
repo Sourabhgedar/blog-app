@@ -1,14 +1,14 @@
 'use client'
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Article } from '../blogStore/Types/blogsTypes'
 import { MAIN_CONSTANTS } from '../constants'
-import { Box, Grid } from '@mui/material';
+import {  Grid } from '@mui/material';
+import Head from 'next/head'
 type ListType = {
     lists: Article,
     isSourcePage: boolean
