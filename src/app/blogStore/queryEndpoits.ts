@@ -1,4 +1,4 @@
-import { GetTopHeadlinesParams } from './Types/blogsTypes'
+import { GetTopHeadlinesParams  } from './Types/blogsTypes'
 export const queries = {
   getBlogs: {
     query: (queryParams: GetTopHeadlinesParams) => ({

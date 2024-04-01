@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useDeferredValue, useEffect } from 'react'
 import { useGetBlogListQuery } from '../blogStore/query'
 import { GetTopHeadlinesParams } from '../blogStore/Types/blogsTypes'
@@ -66,7 +67,7 @@ const NewsListing = () => {
         <>
             <Box sx={{
                 position: 'sticky',
-                top: {md:'64px' , sx:'64px' , xs:'56px'},
+                top: { md: '68px', sx: '64px', xs: '56px' },
                 background: '#fff',
                 padding: '15px 0',
                 zIndex: 999,
@@ -78,10 +79,15 @@ const NewsListing = () => {
                         container
                         alignItems='center'
                         spacing={2}
-                        // mb={2}
+                    // mb={2}
 
                     >
-                        <Grid item xs={3} sm={1} md={1} lg={1} xl={1} >
+                        <Grid item xs={3} sm={1} md={1} lg={1} xl={1}
+                            onClick={handleReset}
+                            sx={{
+                                cursor:'pointer'
+                            }}
+                        >
                             <Chip
                                 label="Reset"
                                 deleteIcon={<TuneIcon />}
@@ -151,17 +157,20 @@ const NewsListing = () => {
                         {
                             newsListingData?.articles && newsListingData?.articles?.length > 0 && newsListingData.articles instanceof Array ?
                                 newsListingData.articles.map((lists, index) => {
-                                    return <Grid item xs={12} sm={12} md={4} lg={4} xl={3} key={index}>
+                                    return <React.Fragment  key={index}>
+                                        <Grid item xs={12} sm={12} md={4} lg={4} xl={3}>
                                         <Cards
                                             lists={lists}
+                                            isSourcePage={false}
                                         />
                                     </Grid>
+                                    </React.Fragment>
                                 }) :
                                 <>
                                     {
                                         isLoading &&
-                                        Array.from(new Array(8)).map((item) => (
-                                            <Grid item xs={12} sm={12} md={4} lg={4} xl={3}>
+                                        Array.from(new Array(8)).map((item , index) => (
+                                            <Grid item xs={12} sm={12} md={4} lg={4} xl={3} key={index}>
                                                 <CardsSkeleton />
                                             </Grid>
                                         ))

@@ -75,6 +75,15 @@ export const MAIN_CONSTANTS = {
     SELECT_LABELS: {
         COUNTRY: "COUNTRY",
         CATEGORY: "CATEGORY"
-    }
-
+    },
+    PAGES: [
+        {
+            name: "News",
+            route: '/'
+        },
+        {
+            name: "Sources",
+            route: '/sources'
+        }
+    ]
 }

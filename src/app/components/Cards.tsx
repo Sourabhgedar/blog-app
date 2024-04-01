@@ -1,3 +1,4 @@
+'use client'
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -9,10 +10,11 @@ import { Article } from '../blogStore/Types/blogsTypes'
 import { MAIN_CONSTANTS } from '../constants'
 import { Box, Grid } from '@mui/material';
 type ListType = {
-    lists: Article
+    lists: Article,
+    isSourcePage: boolean
 };
 
-export default function Cards({ lists }: ListType) {
+export default function Cards({ lists, isSourcePage }: ListType) {
     const [expanded, setExpanded] = React.useState(false);
 
     const toggleExpanded = () => {
@@ -28,23 +30,25 @@ export default function Cards({ lists }: ListType) {
     return (
         <Card
             sx={{
-                minHeight: '300px',
-            }}>
-            <CardMedia
-                component="img" alt="green iguana" height="150"
-                image={lists?.urlToImage ? lists?.urlToImage : MAIN_CONSTANTS.PLACE_HOLDER_IMAGE}
-                onError={handleImagError}
-                onClick={()=>{
-                    window.open(lists.url, '_blank');
-                }}
-                sx={{
-                    transition: 'transform 0.3s ease',
-                    '&:hover': {
-                      transform: 'scale(1.1)', 
-                    },
-                    cursor:'pointer'
-                  }}
-            />
+                minHeight: lists?.urlToImage ? '300px' : '180px',
+            }}>{
+                !isSourcePage &&
+                <CardMedia
+                    component="img" alt="green iguana" height="150"
+                    image={lists?.urlToImage ? lists?.urlToImage : MAIN_CONSTANTS.PLACE_HOLDER_IMAGE}
+                    onError={handleImagError}
+                    onClick={() => {
+                        window.open(lists.url, '_blank');
+                    }}
+                    sx={{
+                        transition: 'transform 0.3s ease',
+                        '&:hover': {
+                            transform: 'scale(1.1)',
+                        },
+                        cursor: 'pointer'
+                    }}
+                />
+            }
             <CardContent
                 sx={{
                     display: 'flex', alignItems: 'start',
@@ -69,14 +73,14 @@ export default function Cards({ lists }: ListType) {
                         container
                     >
                         <Grid item xs={6} sm={6} md={6} lg={6} xl={6} >
-                            <Button  size="small" onClick={toggleExpanded}>
+                            <Button size="small" onClick={toggleExpanded}>
                                 {expanded ? 'Show Less' : 'Show More'}
                             </Button>
                         </Grid>
-                        <Grid item sx={{textAlign:'end'}}  xs={6} sm={6} md={6} lg={6} xl={6}>
-                        <Button size="small" onClick={() => { window.open(lists.url, '_blank'); }}>
-                            View
-                        </Button>
+                        <Grid item sx={{ textAlign: 'end' }} xs={6} sm={6} md={6} lg={6} xl={6}>
+                            <Button size="small" onClick={() => { window.open(lists.url, '_blank'); }}>
+                                View
+                            </Button>
                         </Grid>
                     </Grid>
                 </>

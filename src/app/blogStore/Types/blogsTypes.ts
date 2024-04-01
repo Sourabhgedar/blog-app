@@ -1,16 +1,16 @@
 
 export interface Article {
-  source: {
+  source?: {
     id: string | null;
     name: string;
   };
   author: string | null;
-  title: string;
+  title?: string;
   description: string;
   url: string;
-  urlToImage: string;
-  publishedAt: string;
-  content: string | null;
+  urlToImage: string | null;
+  publishedAt?: string;
+  content?: string | null;
 }
 
 export interface BlogApiResponse {
@@ -19,11 +19,17 @@ export interface BlogApiResponse {
   articles: Article[];
 }
 
+
+
 export interface GetTopHeadlinesParams {
   country: string;
   category: string;
   apiKey: string | undefined;
   page: number;
   pageSize: number;
-  q:string
+  q: string
+}
+
+export interface GetSourceParams {
+  apiKey: string | undefined;
 }
