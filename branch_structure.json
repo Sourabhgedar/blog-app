@@ -1,0 +1,27 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "feature/blogs",
+    "feature/middleware",
+    "feature/mui",
+    "feature/rtk",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "feature/blogs": "main",
+    "feature/middleware": "main",
+    "feature/mui": "main",
+    "feature/rtk": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "feature/blogs",
+    "feature/middleware",
+    "feature/mui",
+    "feature/rtk",
+    "origin"
+  ]
+}
